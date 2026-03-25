@@ -19,14 +19,14 @@ data["Birthday_count"] = data["Birthday_count"].fillna(data["Birthday_count"].me
 data["Type_Occupation"] = data["Type_Occupation"].fillna("Unknown")
 
 # 4. Keep only the 4 features + target
-X = data[["Car_Owner", "Propert_Owner", "Annual_income", "EDUCATION"]]
+X = data[["Car_Owner", "Propert_Owner", "Annual_income", "EDUCATION"]].copy()
 y = data["label"]
 
 # 5. Encode categorical columns
 cat_cols = ["Car_Owner", "Propert_Owner", "EDUCATION"]
 le = LabelEncoder()
 for col in cat_cols:
-    X[col] = le.fit_transform(X[col])
+    X.loc[:,col] = le.fit_transform(X[col])
 
 # 6. Train-test split
 X_train, X_test, y_train, y_test = train_test_split(
@@ -50,4 +50,4 @@ print(f"Model Accuracy: {acc:.2f}")
 # 10. Save model & scaler
 joblib.dump(model, "model/credit_card_model.pkl")
 joblib.dump(scaler, "model/scaler.pkl")
-print("✅ Model and scaler saved successfully")
+print("Model and scaler saved successfully")
