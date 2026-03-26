@@ -41,5 +41,5 @@ This project was built as a first step in my Data Science journey.
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/credit-card-approval-prediction.git
+git clone https://github.com/rubesh-hp/credit-card-approval-prediction.git
 ```
